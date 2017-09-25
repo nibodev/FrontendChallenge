@@ -24,7 +24,7 @@ Pontos extras
 -------------------------
 Você está livre para construir a solução com as tecnologias e conceitos que preferir. Mas você poderá ganhar pontos extras se:
 - Utilizar ES6/ES2016+ ou Typescript
-- Trocar o AngularJS por Angular 4 ou ReactJS
+- Trocar o AngularJS por Angular 2/4
 - Persistir os dados usando Local Storage ou Web SQL
 - Utilizar pré-processadores CSS
 
