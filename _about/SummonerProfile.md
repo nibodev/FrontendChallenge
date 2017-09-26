@@ -3,10 +3,9 @@ Perfil do Invocador
 
 **Nome completo:**   
 **Data de nascimento:**   
+**Nick no LOL:**   
 
-**Como nos conheceu:**
-
-**Nick no LOL (opcional... por enquanto):**   
-**Perfil na STEAM:**
-
-
+**Qual seu editor de código favorito e por que**:   
+**GULP, GRUNT?**
+**Bower morreu?**   
+**Como nos conheceu:**   
