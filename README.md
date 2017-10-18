@@ -23,8 +23,8 @@ Seu objetivo é criar um sistema onde é possível cadastrar os times e gerencia
 Pontos extras
 -------------------------
 Você está livre para construir a solução com as tecnologias e conceitos que preferir. Mas você poderá ganhar pontos extras se:
-- Utilizar ES6/ES2016+ ou Typescript
-- Trocar o AngularJS por Angular 2/4
+- Utilizar ES2015+ com Babel ou Typescript
+- Trocar o AngularJS por Angular 4
 - Persistir os dados usando Local Storage ou Web SQL
 - Utilizar pré-processadores CSS
 
