@@ -1,6 +1,10 @@
 NIBO Front-end Challenge - Level 1
 ==============
 
+Quer saber o por que vale a pena trabalhar no nibo? Acesse [nibodev.github.io](https://nibodev.github.io) e conheça a cultura e as tecnologias que utilizamos!
+
+----
+
 Bem vindo à Summoners Rift. 
 
 Você foi convocado a participar do mais empolgante desafio de sua vida: acabar com os intermináveis conflitos em Valoran. A nação humana de Demacia, o assombroso império de Noxus e os moradores de todas as cidades-estado aguardam ansiosamente por este momento.
