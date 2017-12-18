@@ -3,9 +3,9 @@ Perfil do Invocador
 
 **Nome completo:**   
 **Data de nascimento:**   
-**Nick no LOL:**   
+**Endereço no LinkedIn:**   
 
-**Qual seu editor de código favorito e por que**   
+**Qual sua IDE favorita e por que:**   
 
 **GULP, GRUNT?**
 
