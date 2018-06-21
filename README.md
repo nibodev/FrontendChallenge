@@ -28,7 +28,7 @@ Pontos extras
 -------------------------
 Você está livre para construir a solução com as tecnologias e conceitos que preferir. Mas você poderá ganhar pontos extras se:
 - Utilizar ES2015+ com Babel ou Typescript
-- Trocar o AngularJS por Angular 4
+- Trocar o AngularJS por Angular 6
 - Persistir os dados usando Local Storage ou Web SQL
 - Utilizar pré-processadores CSS
 
@@ -41,7 +41,7 @@ Ao final, você deverá criar um fork deste repositório, incluir o seu código 
 
 Tenha capricho com seu código e com o resultado final. Essa é a sua chance de entrar para o melhor time, na startup que mais cresce no Brasil.
 
-"Domine à si mesmo, e dominará seu inimigo" - Lee Sin
+Tem alguma dúvida? Utilize o [canal de issues](https://github.com/nibodev/FrontendChallenge/labels/question) do Github para fazer sua pergunta :D
 
 **NIBO - Desenvolvimento de alta performance para geeks inquietos**
 
