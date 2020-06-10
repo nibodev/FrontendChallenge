@@ -1,0 +1,23 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url(https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap);
+}
+
+body {
+    box-sizing: border-box;
+    line-height: 1.6;
+    font-family: 'EB Garamond', serif;
+    height: 100vh;
+}
+
+html {
+    font-size: 62.5%;
+}
