@@ -1,1 +1,6 @@
-<p>list works!</p>
+<ul *ngFor="let region of regions">
+    <li class="list-region" [ngClasses]="setClasses()">
+        <span class="list-region--name">{{region.name}}</span>
+        <img class="list-region--icon" src="../../../assets/{{region.icon}}" />
+    </li>
+</ul>
