@@ -35,19 +35,13 @@ Seu objetivo é criar um sistema onde é possível cadastrar os times e gerencia
 
 ![Formato do torneio](torneio.jpeg)
 
-- Você deverá desenvolver uma solução em Javascript utilizando AngularJS. Você pode decidir sobre outras bibliotecas e tecnologias.
-- Queremos como resultado uma solução simples, legível e de qualidade. 
-- Código feito e comentado em **inglês** please.
-- Não utilize soluções prontas. Nós as conhecemos.
-- Seja criativo. Você decide quais funcionalidades irá incluir além dos requisitos.
-
-Pontos extras
--------------------------
-Você está livre para construir a solução com as tecnologias e conceitos que preferir. Mas você poderá ganhar pontos extras se:
-- Utilizar ES2015+ com Babel ou Typescript
-- Trocar o AngularJS por Angular 2+
-- Persistir os dados usando Local Storage ou Web SQL
-- Utilizar pré-processadores CSS
+**Requisitos**
+- [ ] Você deverá desenvolver uma solução utilizando **Angular** utilizando as dependências, tecnologias e conceitos que julgar melhor.
+- [ ] Queremos como resultado uma solução simples, legível e de qualidade. 
+- [ ] Código feito e comentado em **inglês**.
+- [ ] Não utilize soluções prontas. Nós as conhecemos.
+- [ ] Seja criativo. Você decide quais funcionalidades irá incluir além dos requisitos.
+- [ ] Não hospede sua aplicação ou parte dela em nenhum lugar. Sua aplicação deverá rodar localmente sem depender de serviços externos.
 
 Nós iremos avaliar a qualidade técnica do código CSS, HTML e Javascript além do aspecto visual e de usabilidade da aplicação.
 
@@ -58,7 +52,7 @@ Você deverá criar um fork deste repositório, incluir o seu código fonte na p
 
 Tenha capricho com seu código e com o resultado final. Essa é a sua chance de entrar para o melhor time, na startup que mais cresce no Brasil.
 
-Tem alguma dúvida? Utilize o [canal de issues](https://github.com/nibodev/FrontendChallenge/labels/question) do Github para fazer sua pergunta :D
+Tem alguma dúvida? Utilize o [canal de issues](https://github.com/nibodev/FrontendChallenge/labels/question) do Github para fazer sua pergunta.
 
 **NIBO - Desenvolvimento de alta performance para geeks inquietos**
 
