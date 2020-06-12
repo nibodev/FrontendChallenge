@@ -1,6 +1,6 @@
-<ul *ngFor="let region of regions">
-    <li class="list-region" [ngClasses]="setClasses()">
+<app-region *ngFor="let region of regions" [region]="region">
+    <!-- <li [id]="{{region.id}}" [ngClasses]="setClasses()">
         <span class="list-region--name">{{region.name}}</span>
-        <img class="list-region--icon" src="../../../assets/{{region.icon}}" />
-    </li>
-</ul>
+        <img class="list-region--icon" [src]="../../../assets/{{region.icon}}" />
+    </li> -->
+</app-region>
