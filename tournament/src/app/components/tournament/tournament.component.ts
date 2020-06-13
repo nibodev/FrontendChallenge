@@ -15,7 +15,12 @@ export class TournamentComponent implements OnInit {
     2: Region|null, 
     3: Region|null, 
     4: Region|null 
-  }
+  } = {
+    1: null,
+    2: null,
+    3: null, 
+    4: null
+  };
 
   constructor(private tournamentService: TournamentService) {}
 
@@ -23,5 +28,9 @@ export class TournamentComponent implements OnInit {
     TournamentService.selectedRegion.subscribe(
       selected => this.selected = selected
     );
+  }
+
+  onRemove(selected, position){
+    this.tournamentService.removeSelectedRegion(selected, position);
   }
 }

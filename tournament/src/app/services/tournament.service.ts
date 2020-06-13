@@ -8,6 +8,7 @@ import { Region } from '../models/region';
 
 export class TournamentService {
   static selectedRegion = new EventEmitter();
+  static updateRegions = new EventEmitter();
   //private
   regions: Region[] = [
     {
@@ -72,11 +73,8 @@ export class TournamentService {
     4: null
   };
 
-  constructor() { 
-    console.log('TournamentService')
-  }
+  constructor() {}
 
-  // :Observable<Region[]>?
   getRegions() {
     return this.regions;
   }
@@ -84,8 +82,26 @@ export class TournamentService {
   addSelectedRegion(region: Region) {
     const emptyPosition = Object.keys(this.selected).find(position => this.selected[position] === null);
     if(emptyPosition !== undefined){
+      this.regions = this.regions.map(el =>
+        el.id === region.id
+          ? { ...el, inTournament: true }
+          : el
+      );
+      TournamentService.updateRegions.emit(this.regions);
       this.selected = {...this.selected, [emptyPosition]: region}
       TournamentService.selectedRegion.emit(this.selected);
     }
   }
+
+  removeSelectedRegion(region: Region, position: number) {
+    this.selected = {...this.selected, [position]: null};
+    this.regions = this.regions.map(el =>
+      el.id === region.id
+        ? { ...el, inTournament: false }
+        : el
+    );
+    TournamentService.updateRegions.emit(this.regions);
+    TournamentService.selectedRegion.emit(this.selected);
+  }
+  
 }
