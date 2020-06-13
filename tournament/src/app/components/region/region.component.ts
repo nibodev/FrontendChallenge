@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Region } from 'src/app/models/region';
+import { Component, OnInit, Input,EventEmitter, Output } from '@angular/core';
+
+import { TournamentService } from '../../services/tournament.service';
+import { Region } from '../../models/region';
 
 @Component({
   selector: 'app-region',
@@ -8,10 +10,14 @@ import { Region } from 'src/app/models/region';
 })
 export class RegionComponent implements OnInit {
   @Input() region: Region;
-  
-  constructor() { }
+
+  constructor(private tournamentService: TournamentService) { }
 
   ngOnInit(): void {
+  }
+
+  onSelect(region: Region) {
+    this.tournamentService.addSelectedRegion(region);
   }
 
 }

@@ -1,6 +1,4 @@
-<button [id]="{{region.id}}" (click)="onSelect()" disabled="{{region.inTournament}}">
-    <img class="list-region--icon" [src]="../../../assets/{{region.icon}}" />
-    <span class="list-region--name">{{region.name}}</span>
+<button class="region" [id]="region.id" (click)="onSelect(region)" [disabled]="region.inTournament">
+    <img class="region--icon" src="../../../assets/{{region.icon}}" />
+    <span class="region--name">{{region.name}}</span>
 </button>
-
-<!-- [ngClasses]="setClasses()" -->

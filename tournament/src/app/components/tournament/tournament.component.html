@@ -1,1 +1,14 @@
-<p>{{selected}}</p>
+<div *ngIf="selected !== undefined">
+    <div *ngIf="selected[1] !== null">
+        {{selected[1].name}}
+    </div>
+    <div *ngIf="selected[2] !== null">
+        {{selected[2].name}}
+    </div>
+    <div *ngIf="selected[3] !== null">
+        {{selected[3].name}}
+    </div>
+    <div *ngIf="selected[4] !== null">
+        {{selected[4].name}}
+    </div>
+</div>
