@@ -1,3 +1,11 @@
+<header class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Battlefield</h1>
+      <h2 class="subtitle">Choose who will win clicking in team box</h2>
+    </div>
+  </div>
+</header>
 <section class="section">
   <div class="container">
     <div class="box" *ngFor="let battle of battles">
@@ -5,7 +13,7 @@
       <div class="container">
         <div class="columns has-text-centered" *ngFor="let match of battle.matches">
           <div class="column is-3">
-            <div class="box" *ngFor="let team of match.homeTeams">
+            <div class="box team-box" *ngFor="let team of match.homeTeams">
               <h1 class="title">{{team.name}}</h1>
             </div>
           </div>
@@ -13,12 +21,19 @@
             <h1 *ngFor="let team of match.homeTeams" class="title has-text-danger p-4">VS</h1>
           </div>
           <div class="column is-3">
-            <div class="box" *ngFor="let team of match.awayTeams">
+            <div class="box team-box" *ngFor="let team of match.awayTeams">
               <h1 class="title">{{team.name}}</h1>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="field is-grouped is-grouped-right">
+      <p class="control">
+        <a class="button is-primary" (click)="goToLobby()">
+          Go to Lobby
+        </a>
+      </p>
     </div>
   </div>
 </section>
