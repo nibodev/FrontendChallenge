@@ -1,0 +1,14 @@
+@import '~bulma/sass/utilities/all.sass';
+:host {
+  .team-box {
+    cursor: pointer;
+    transition: background-color 500ms;
+    background-color: $grey;
+    .title {
+      color: $white;
+    }
+    &:hover {
+      background-color: $primary;
+    }
+  }
+}
