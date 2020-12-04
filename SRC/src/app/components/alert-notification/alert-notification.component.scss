@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  justify-content: center;
+  .notification {
+    position: absolute;
+    top: 50px;
+    width: 90%;
+    max-width: 1215px;
+  }
+}
