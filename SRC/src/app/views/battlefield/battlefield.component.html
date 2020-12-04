@@ -1,0 +1,24 @@
+<section class="section">
+  <div class="container">
+    <div class="box" *ngFor="let round of roundList">
+      <h1 class="title">{{round.roundType}}</h1>
+      <div class="container">
+        <div class="columns has-text-centered">
+          <div class="column is-3">
+            <div class="box" *ngFor="let team of round.homeTeamsList">
+              <h1 class="title">{{team.name}}</h1>
+            </div>
+          </div>
+          <div class="column is-6">
+            <h1 class="title has-text-danger">VS</h1>
+          </div>
+          <div class="column is-3">
+            <div class="box" *ngFor="let team of round.awayTeamsList">
+              <h1 class="title">{{team.name}}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
