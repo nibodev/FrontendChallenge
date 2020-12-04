@@ -1,0 +1,12 @@
+<header>
+  <h1>Summoners Rift</h1>
+  <h2>The Last of Leagues</h2>
+</header>
+<router-outlet></router-outlet>
+<app-alert-notification 
+  *ngIf="notification.show" 
+  (onClose)="onCloseAlertNotification()"
+  [text]="notification.text"
+  [type]="notification.notificationType"
+>
+</app-alert-notification>
