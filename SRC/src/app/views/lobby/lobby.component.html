@@ -1,0 +1,78 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Lobby</h1>
+    <h2 class="subtitle">Manage the teams that will participate in the tournament</h2>
+    <form class="form">
+      <div class="field">
+        <label class="label">Rounds Type</label>
+        <div class="control">
+          <div class="select">
+            <select (change)="changeRoundType($event.target.value)">
+              <option 
+                [selected]="round === roundTypeSelected"
+                [value]="round"
+                *ngFor="let round of getRoundsTypeList()"
+              >
+                {{round}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <label class="label">Participants</label>
+      <div class="field" *ngFor="let participant of participants">
+        <div class="field has-addons">
+          <div class="control is-expanded">
+            <input 
+              class="input" 
+              [ngModel]="participant.name" 
+              (blur)="updateParticipant($event.target.value, participant.id)" 
+              type="text" 
+              placeholder="Team name"
+              [name]='participant.id'
+            >
+          </div>
+          <div class="control">
+            <a class="button has-text-danger" (click)="removeParticipant(participant)">
+              X
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="field" *ngIf="totalParticipantsRequired > 0">
+        <div class="field has-addons">
+          <div class="control is-expanded">
+            <input 
+              class="input" 
+              (keyup.enter)="createParticipant(newParticipantName)"
+              (blur)="createParticipant(newParticipantName)"
+              [(ngModel)]="newParticipantName"
+              type="text"
+              placeholder="Team name"
+              [ngModelOptions]="{standalone:true}"
+            >
+          </div>
+          <div class="control">
+            <a class="button is-info" (click)="createParticipant(newParticipantName)">
+              +
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="field is-grouped is-grouped-right">
+        <p class="control" *ngIf="totalParticipantsRequired > 0 || participants?.length > Rounds[roundTypeSelected]">
+          <span class="has-text-danger">
+            You need 
+            {{!(participants?.length > Rounds[roundTypeSelected]) ? 'create' : 'delete'}} 
+            more {{totalParticipants(totalParticipantsRequired)}} participants
+          </span>
+        </p>
+        <p class="control" *ngIf="totalParticipantsRequired === 0">
+          <a class="button is-primary" (click)="goToBattle()">
+            Go to battle
+          </a>
+        </p>
+      </div>
+    </form>
+  </div>
+</section>
