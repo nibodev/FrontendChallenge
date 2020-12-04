@@ -5752,6 +5752,13 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
+ng2-tooltip-directive@^2.9.22:
+  version "2.9.22"
+  resolved "https://registry.yarnpkg.com/ng2-tooltip-directive/-/ng2-tooltip-directive-2.9.22.tgz#742ad1f8c670c890b1ea3dead5f20feecbe98b78"
+  integrity sha512-y54rP/AHKkcS/+lZPGil9uirbfWrbhS8vE1GWswB08sVfT4ztu2h6SmIf7cJM1YenTaWYvYfKth9oZQJljXV5Q==
+  dependencies:
+    tslib "^2.0.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"

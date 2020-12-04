@@ -7,7 +7,7 @@ import { AlertNotificationComponent } from './components/alert-notification/aler
 import { AppStoreModule } from './store/app-store.module';
 import { BattlefieldComponent } from './views/battlefield/battlefield.component';
 import { LobbyComponent } from './views/lobby/lobby.component';
-
+import { TooltipModule } from 'ng2-tooltip-directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { LobbyComponent } from './views/lobby/lobby.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AppStoreModule
+    AppStoreModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
