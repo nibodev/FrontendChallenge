@@ -49,7 +49,7 @@ export class BattlefieldComponent implements OnInit {
     this.battles = this.buildBattlesList(totalParticipantsRequired, participants);
 
     if (this.battles?.length === 0) {
-      this.router.navigate(['lobby']);
+      this.goToLobby();
     }
   }
 
@@ -72,7 +72,7 @@ export class BattlefieldComponent implements OnInit {
    * return Matches list array
    */
   buildMatchesList(participants: Participant[], roundType: string): Match[] {
-    const matches = [];
+    const matches: Match[] = [];
     const homeTeamsListToFirstRound = participants.filter((item, i) => i % 2 === 0);
     const awayTeamsListToFirstRound = participants.filter((item, i) => i % 2 !== 0);
     if (roundType === this.tournamentSwitching.roundType) {
@@ -82,5 +82,12 @@ export class BattlefieldComponent implements OnInit {
       });
     }
     return matches;
+  }
+
+  /**
+   * change route to lobby
+   */
+  goToLobby(): void {
+    this.router.navigate(['lobby']);
   }
 }
