@@ -5,6 +5,16 @@ import { Rounds } from 'src/app/models/enums/Rounds.enum';
 import { Participant } from 'src/app/models/interfaces/Participant.interface';
 import { TournamentSwitching } from 'src/app/models/interfaces/TournamentSwitching.interface';
 
+interface Match {
+  awayTeams: Participant[];
+  homeTeams: Participant[];
+}
+
+interface Battles {
+  roundType: string;
+  matches: Match[];
+}
+
 @Component({
   selector: 'app-battlefield',
   templateUrl: './battlefield.component.html',
@@ -17,9 +27,9 @@ export class BattlefieldComponent implements OnInit {
   tournamentSwitching: TournamentSwitching;
 
   /**
-   * used to get round list
+   * used to get roundType list
    */
-  roundList: any[];
+  battles: Battles[];
 
   constructor(
     private store: Store<{ tournamentSwitching: TournamentSwitching }>,
@@ -34,28 +44,43 @@ export class BattlefieldComponent implements OnInit {
   ngOnInit(): void {
     const { roundType, participants } = this.tournamentSwitching;
 
-    const totalRequired = Rounds[roundType];
+    const totalParticipantsRequired = Rounds[roundType];
 
-    this.roundList = this.getRoundsList(totalRequired, participants);
+    this.battles = this.buildBattlesList(totalParticipantsRequired, participants);
 
-    if (this.roundList?.length === 0) {
+    if (this.battles?.length === 0) {
       this.router.navigate(['lobby']);
     }
   }
 
   /**
-   * build round list array with RoundType, HomeTeamsList and AwayTeamsList
+   * return Battles list array
    */
-  getRoundsList(totalRequired: number, participants: Participant[]): any[] {
-    const roundList = [];
-    for (let index = totalRequired; index >= 0; index--) {
+  buildBattlesList(totalParticipantsRequired: number, participants: Participant[]): Battles[] {
+    const battles = [];
+    for (let index = totalParticipantsRequired; index >= 0; index--) {
       if (!!Rounds[index]) {
         const roundType = Rounds[index];
-        const homeTeamsList = participants.filter((item, i) => i % 2 === 0);
-        const awayTeamsList = participants.filter((item, i) => i % 2 !== 0);
-        roundList.push({roundType, homeTeamsList, awayTeamsList});
+        const matches = this.buildMatchesList(participants, roundType);
+        battles.push({ roundType, matches });
       }
     }
-    return roundList;
+    return battles;
+  }
+
+  /**
+   * return Matches list array
+   */
+  buildMatchesList(participants: Participant[], roundType: string): Match[] {
+    const matches = [];
+    const homeTeamsListToFirstRound = participants.filter((item, i) => i % 2 === 0);
+    const awayTeamsListToFirstRound = participants.filter((item, i) => i % 2 !== 0);
+    if (roundType === this.tournamentSwitching.roundType) {
+      matches.push({
+        homeTeams: homeTeamsListToFirstRound,
+        awayTeams: awayTeamsListToFirstRound
+      });
+    }
+    return matches;
   }
 }

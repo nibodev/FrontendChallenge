@@ -1,19 +1,19 @@
 <section class="section">
   <div class="container">
-    <div class="box" *ngFor="let round of roundList">
-      <h1 class="title">{{round.roundType}}</h1>
+    <div class="box" *ngFor="let battle of battles">
+      <h1 class="title">{{battle.roundType}}</h1>
       <div class="container">
-        <div class="columns has-text-centered">
+        <div class="columns has-text-centered" *ngFor="let match of battle.matches">
           <div class="column is-3">
-            <div class="box" *ngFor="let team of round.homeTeamsList">
+            <div class="box" *ngFor="let team of match.homeTeams">
               <h1 class="title">{{team.name}}</h1>
             </div>
           </div>
           <div class="column is-6">
-            <h1 class="title has-text-danger">VS</h1>
+            <h1 *ngFor="let team of match.homeTeams" class="title has-text-danger p-4">VS</h1>
           </div>
           <div class="column is-3">
-            <div class="box" *ngFor="let team of round.awayTeamsList">
+            <div class="box" *ngFor="let team of match.awayTeams">
               <h1 class="title">{{team.name}}</h1>
             </div>
           </div>
