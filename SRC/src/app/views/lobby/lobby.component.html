@@ -1,7 +1,13 @@
+<header class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Lobby</h1>
+      <h2 class="subtitle">Manage the teams that will participate in the tournament</h2>
+    </div>
+  </div>
+</header>
 <section class="section">
   <div class="container">
-    <h1 class="title">Lobby</h1>
-    <h2 class="subtitle">Manage the teams that will participate in the tournament</h2>
     <form class="form">
       <div class="field">
         <label class="label">Rounds Type</label>
@@ -33,8 +39,8 @@
             >
           </div>
           <div class="control">
-            <a class="button has-text-danger" (click)="removeParticipant(participant)">
-              X
+            <a class="button has-text-danger" tooltip="remove participant" (click)="removeParticipant(participant)">
+              <i class="gg-remove"></i>
             </a>
           </div>
         </div>
@@ -53,8 +59,8 @@
             >
           </div>
           <div class="control">
-            <a class="button is-info" (click)="createParticipant(newParticipantName)">
-              +
+            <a class="button is-info" tooltip="create participant" (click)="createParticipant(newParticipantName)">
+              <i class="gg-add"></i>
             </a>
           </div>
         </div>
@@ -68,7 +74,7 @@
           </span>
         </p>
         <p class="control" *ngIf="totalParticipantsRequired === 0">
-          <a class="button is-primary" (click)="goToBattle()">
+          <a class="button is-primary has-tooltip-bottom" (click)="goToBattle()" >
             Go to battle
           </a>
         </p>
