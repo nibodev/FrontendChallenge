@@ -1,3 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bulma/bulma.sass';
-@import 'src/assets/styles/global.scss';
+@import "~bulma/bulma.sass";
+@import "src/assets/styles/global.scss";
+
+html,
+body {
+  min-height: 100%;
+}
