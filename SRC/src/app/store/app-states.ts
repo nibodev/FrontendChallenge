@@ -14,7 +14,7 @@ const notification: AlertNotification = {
 /**
  * Initial state from tournamentSwitching
  */
-const tournamentSwitching: TournamentSwitching = {participants: [], roundType: ''};
+const tournamentSwitching: TournamentSwitching = {participants: [], initialRoundType: ''};
 
 /**
  * Initial states

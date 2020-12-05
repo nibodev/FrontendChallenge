@@ -45,7 +45,7 @@ export class LobbyComponent implements OnInit {
   ) {
     // get round type stored in Store
     store.subscribe((states) => {
-      this.roundTypeSelected = states.tournamentSwitching.roundType || this.roundTypeSelected;
+      this.roundTypeSelected = states.tournamentSwitching.initialRoundType || this.roundTypeSelected;
     });
   }
 
@@ -141,7 +141,7 @@ export class LobbyComponent implements OnInit {
     this.store.dispatch(
       setTournamentSwitching({
         participants: this.participants,
-        roundType: this.roundTypeSelected
+        initialRoundType: this.roundTypeSelected
       })
     );
   }
