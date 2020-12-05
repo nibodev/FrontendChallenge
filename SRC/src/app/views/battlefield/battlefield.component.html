@@ -12,19 +12,27 @@
       <h1 class="title">{{battle.roundType}}</h1>
       <div class="container">
         <div class="columns has-text-centered" *ngFor="let match of battle.matches">
-          <div class="column is-3">
-            <div class="box team-box" *ngFor="let team of match.homeTeams">
-              <h1 class="title">{{team.name}}</h1>
+            <div class="column is-3">
+              <div 
+                class="box team-box"
+                [ngClass]="{'winner': isParticipantWinner(match.homeParticipant, battle), 'looser': isParticipantWinner(match.awayParticipant, battle)}"
+                (click)="!isParticipantWinner(match.awayParticipant, battle) && !isParticipantWinner(match.homeParticipant, battle) && selectWinnerParticipant(match.homeParticipant, battle)"
+              >
+                <h1 class="title">{{match.homeParticipant.name}}</h1>
+              </div>
             </div>
-          </div>
-          <div class="column is-6">
-            <h1 *ngFor="let team of match.homeTeams" class="title has-text-danger p-4">VS</h1>
-          </div>
-          <div class="column is-3">
-            <div class="box team-box" *ngFor="let team of match.awayTeams">
-              <h1 class="title">{{team.name}}</h1>
+            <div class="column is-6">
+              <h1 class="title has-text-danger p-4">VS</h1>
             </div>
-          </div>
+            <div class="column is-3">
+              <div 
+                class="box team-box"
+                [ngClass]="{'winner': isParticipantWinner(match.awayParticipant, battle), 'looser': isParticipantWinner(match.homeParticipant, battle)}"
+                (click)="!isParticipantWinner(match.homeParticipant, battle) && !isParticipantWinner(match.awayParticipant, battle) && selectWinnerParticipant(match.awayParticipant, battle)"
+              >
+                <h1 class="title">{{match.awayParticipant.name}}</h1>
+              </div>
+            </div>
         </div>
       </div>
     </div>

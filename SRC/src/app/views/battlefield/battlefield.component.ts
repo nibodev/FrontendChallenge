@@ -6,13 +6,15 @@ import { Participant } from 'src/app/models/interfaces/Participant.interface';
 import { TournamentSwitching } from 'src/app/models/interfaces/TournamentSwitching.interface';
 
 interface Match {
-  awayTeams: Participant[];
-  homeTeams: Participant[];
+  awayParticipant: Participant;
+  homeParticipant: Participant;
 }
 
-interface Battles {
+interface Battle {
   roundType: string;
+  participants: Participant[];
   matches: Match[];
+  winners: Participant[];
 }
 
 @Component({
@@ -29,7 +31,7 @@ export class BattlefieldComponent implements OnInit {
   /**
    * used to get roundType list
    */
-  battles: Battles[];
+  battles: Battle[];
 
   constructor(
     private store: Store<{ tournamentSwitching: TournamentSwitching }>,
@@ -42,11 +44,9 @@ export class BattlefieldComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const { roundType, participants } = this.tournamentSwitching;
+    const { participants } = this.tournamentSwitching;
 
-    const totalParticipantsRequired = Rounds[roundType];
-
-    this.battles = this.buildBattlesList(totalParticipantsRequired, participants);
+    this.battles = this.buildBattlesList(participants);
 
     if (this.battles?.length === 0) {
       this.goToLobby();
@@ -54,31 +54,36 @@ export class BattlefieldComponent implements OnInit {
   }
 
   /**
-   * return Battles list array
+   * Build the battles by participants registered
    */
-  buildBattlesList(totalParticipantsRequired: number, participants: Participant[]): Battles[] {
+  buildBattlesList(participants: Participant[]): Battle[] {
     const battles = [];
-    for (let index = totalParticipantsRequired; index >= 0; index--) {
-      if (!!Rounds[index]) {
-        const roundType = Rounds[index];
-        const matches = this.buildMatchesList(participants, roundType);
-        battles.push({ roundType, matches });
+    for (let index = participants.length; index >= 2; index = index / 2) {
+
+      const roundType = Rounds[index];
+
+      if (index === participants.length) {
+        const matches = this.buildMatchesList(participants);
+
+        battles.push({ roundType, participants, matches, winners: []});
+      } else {
+        battles.push({ roundType, participants: [], matches: [], winners: []});
       }
     }
     return battles;
   }
 
   /**
-   * return Matches list array
+   * Build the matches of a battle
    */
-  buildMatchesList(participants: Participant[], roundType: string): Match[] {
+  buildMatchesList(participants: Participant[]): Match[] {
     const matches: Match[] = [];
-    const homeTeamsListToFirstRound = participants.filter((item, i) => i % 2 === 0);
-    const awayTeamsListToFirstRound = participants.filter((item, i) => i % 2 !== 0);
-    if (roundType === this.tournamentSwitching.roundType) {
+    const homeTeams = participants.filter((item, index) => index % 2 === 0);
+    const awayTeams = participants.filter((item, index) => index % 2 !== 0);
+    for (let index = 0; index < participants.length / 2; index ++) {
       matches.push({
-        homeTeams: homeTeamsListToFirstRound,
-        awayTeams: awayTeamsListToFirstRound
+        awayParticipant: awayTeams[index],
+        homeParticipant: homeTeams[index]
       });
     }
     return matches;
@@ -89,5 +94,29 @@ export class BattlefieldComponent implements OnInit {
    */
   goToLobby(): void {
     this.router.navigate(['lobby']);
+  }
+
+  /**
+   * selects the winning participants of a match in a battle
+   */
+  selectWinnerParticipant(participant: Participant, battle: Battle): void {
+    battle.winners.push(participant);
+    if (Rounds[battle.roundType] === Rounds.FINAL) {
+      alert(`${participant.name} is the champion`);
+    } else {
+      if (battle.winners.length === battle.participants.length / 2) {
+        const nextRoundType = Rounds[battle.winners.length];
+        const nextBattle = this.battles.find(b => b.roundType === nextRoundType);
+        nextBattle.participants = battle.winners;
+        nextBattle.matches = this.buildMatchesList(nextBattle.participants);
+      }
+    }
+  }
+
+  /**
+   * verify that the participant has won a match in a battle
+   */
+  isParticipantWinner(participant: Participant, battle: Battle): boolean {
+    return !!battle.winners.find(item => item.id === participant.id);
   }
 }

@@ -1,4 +1,4 @@
-@import '~bulma/sass/utilities/all.sass';
+@import "~bulma/sass/utilities/all.sass";
 :host {
   .team-box {
     cursor: pointer;
@@ -7,8 +7,13 @@
     .title {
       color: $white;
     }
-    &:hover {
+    &:hover,
+    &.winner {
       background-color: $primary;
+    }
+    &.looser {
+      background-color: $grey-light;
+      cursor: not-allowed;
     }
   }
 }
