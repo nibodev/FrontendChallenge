@@ -95,6 +95,7 @@ export class LobbyComponent implements OnInit {
   changeRoundType(round: string): void {
     this.roundTypeSelected = round;
     this.updateTotalParticipantsRequired();
+    this.dispatchSetTournamentSwitching();
   }
 
   /**
@@ -109,12 +110,7 @@ export class LobbyComponent implements OnInit {
    */
   goToBattle(): void {
     this.route.navigate(['battlefield']);
-    this.store.dispatch(
-      setTournamentSwitching({
-        participants: this.participants,
-        roundType: this.roundTypeSelected
-      })
-    );
+    this.dispatchSetTournamentSwitching();
   }
 
   /**
@@ -136,5 +132,17 @@ export class LobbyComponent implements OnInit {
    */
   calculateTotalParticipantsRequired(totalParticipantsRequired: number): number {
     return totalParticipantsRequired - this.participants.length;
+  }
+
+  /**
+   * Call setTournamentSwitching action to change tournament switching state
+   */
+  dispatchSetTournamentSwitching(): void {
+    this.store.dispatch(
+      setTournamentSwitching({
+        participants: this.participants,
+        roundType: this.roundTypeSelected
+      })
+    );
   }
 }
