@@ -48,7 +48,7 @@ Nós iremos avaliar a qualidade técnica do código CSS, HTML e Javascript além
 Envio da solução
 -------------------------
 
-Você deverá criar um fork deste repositório, incluir o seu código fonte na pasta ``SRC``,  preencher o formulário "_about/Profile.md" e enviar para recruta.tech@nibo.com.br o link do seu fork.
+Você deverá criar um fork deste repositório, incluir o seu código fonte na pasta ``SRC`` e enviar para recruta.tech@nibo.com.br o link do seu fork.
 
 Tenha capricho com seu código e com o resultado final. Essa é a sua chance de entrar para o melhor time, na startup que mais cresce no Brasil.
 
