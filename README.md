@@ -36,7 +36,7 @@ Seu objetivo é criar um sistema onde é possível cadastrar os times e gerencia
 ![Formato do torneio](torneio.jpeg)
 
 **Requisitos**
-- [ ] Você deverá desenvolver uma solução utilizando **Angular** utilizando as dependências, tecnologias e conceitos que julgar melhor.
+- [ ] Você deverá desenvolver uma solução utilizando **Angular.JS** utilizando as dependências, tecnologias e conceitos que julgar melhor.
 - [ ] Queremos como resultado uma solução simples, legível e de qualidade. 
 - [ ] Código feito e comentado em **inglês**.
 - [ ] Não utilize soluções prontas. Nós as conhecemos.
